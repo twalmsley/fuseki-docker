@@ -1,5 +1,0 @@
-docker build  --tag aosd-fuseki .
-
-docker run --detach -p 3030:3030 --rm --name fuseki aosd-fuseki 
-
-docker run --detach -p 3030:3030 --name fuseki aosd-fuseki 
