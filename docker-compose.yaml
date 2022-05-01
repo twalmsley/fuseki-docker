@@ -9,3 +9,4 @@ services:
     volumes:
       - ./databases:/fuseki/run/databases
       - ./configuration:/fuseki/run/configuration
+      - ./logs:/fuseki/run/logs

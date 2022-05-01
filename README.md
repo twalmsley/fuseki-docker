@@ -5,7 +5,7 @@ Go to an empty directory, clone this repo (or just copy the `docker-compose.yaml
 docker-compose up -d
 ```
 
-This will download and run the latest image which will create (or re-use) the `databases` and `configuration` directories in the current dirfectory.
+This will download and run the latest image which will create (or re-use) the `logs`, `databases` and `configuration` directories in the current dirfectory.
 
 Go to [http://localhost:3030/index.html](http://localhost:3030/index.html) in your browser. 
 
@@ -28,7 +28,7 @@ and run it using:
 docker-compose up -d
 ```
 
-It will create `databases` and `configuration` directories for persistent storage of data.
+It will create `logs`, `databases` and `configuration` directories for persistent storage of data.
 
 Go to [http://localhost:3030/index.html](http://localhost:3030/index.html) in your browser. 
 
