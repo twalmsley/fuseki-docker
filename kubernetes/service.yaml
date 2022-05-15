@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: fuseki
+  name: fuseki
+  namespace: stviewer
+spec:
+  ports:
+    - port: 3030
+      protocol: TCP
+      targetPort: 3030
+  selector:
+    app: fuseki
+  sessionAffinity: None
+  type: ClusterIP

@@ -3,3 +3,4 @@ databases/**
 configuration/**
 logs/**
 run/**
+.vim/**

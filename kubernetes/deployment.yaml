@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fuseki
+  name: fuseki
+  namespace: stviewer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fuseki
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: fuseki
+    spec:
+      containers:
+        - envFrom:
+          image: twalmsley/aosd-fuseki:latest
+          name: fuseki
+          ports:
+            - containerPort: 3030
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 256m
+              memory: 512M
+            requests:
+              cpu: 256m
+              memory: 512M
+          volumeMounts:
+            - name: stviewer-fuseki-config
+              mountPath: /fuseki/run/configuration
+            - name: stviewer-fuseki-logs
+              mountPath: /fuseki/run/logs
+            - name: stviewer-fuseki-db
+              mountPath: /fuseki/run/databases
+      volumes:
+        - name: stviewer-fuseki-logs
+          hostPath:
+            path: /Users/tonywalmsley/work/4d/github/climbingal/stview-angular/logs
+        - name: stviewer-fuseki-db
+          hostPath:
+            path: /Users/tonywalmsley/work/4d/github/climbingal/stview-angular/databases
+        - name: stviewer-fuseki-config
+          hostPath:
+            path: /Users/tonywalmsley/work/4d/github/climbingal/stview-angular/configuration
+
